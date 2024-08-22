@@ -4,24 +4,29 @@
 
 import random
 
-possibilidades = [1,2,3]
+possibilidades = [0,1,2]
 possibilidadesStrings = ["Pedra","Papel","Tesoura"]
 
-jogadaPlayer = int(input("Digite o número equivalente à sua jogada: \n Pedra[1], Papel[2], Tesoura[3]"))
+jogadaPlayer = int(input("Digite o número equivalente à sua jogada: \n Pedra[0], Papel[1], Tesoura[2]"))
 jogadaPlayerString = possibilidadesStrings[jogadaPlayer-1]
 
 jogadaMaquina = random.choice(possibilidades)
 jogadaMaquinaString = possibilidadesStrings[jogadaMaquina-1]
 
-if (jogadaPlayer+1) % 3 == jogadaMaquina:
-    print("Sua jogada:",jogadaPlayerString)
-    print("Jogada da máquina:",jogadaMaquinaString)
-    print(jogadaMaquinaString,"ganha de",jogadaPlayerString,"você perdeu!")
-elif jogadaPlayer == jogadaMaquina:
-    print("Sua jogada:",jogadaPlayerString)
-    print("Jogada da máquina:",jogadaMaquinaString)
-    print("Empate!")
+if jogadaPlayer <=2:
+
+    if (jogadaPlayer+1) % 3 == jogadaMaquina:
+        print("Sua jogada:",jogadaPlayerString)
+        print("Jogada da máquina:",jogadaMaquinaString)
+        print(jogadaMaquinaString,"ganha de",jogadaPlayerString,"você perdeu!")
+    elif jogadaPlayer == jogadaMaquina:
+        print("Sua jogada:",jogadaPlayerString)
+        print("Jogada da máquina:",jogadaMaquinaString)
+        print("Empate!")
+    else:
+        print("Sua jogada:",jogadaPlayerString)
+        print("Jogada da máquina:",jogadaMaquinaString)
+        print(jogadaPlayerString,"ganha de",jogadaMaquinaString,"você ganhou!")
+
 else:
-    print("Sua jogada:",jogadaPlayerString)
-    print("Jogada da máquina:",jogadaMaquinaString)
-    print(jogadaPlayerString,"ganha de",jogadaMaquinaString,"você ganhou!")
+    print("Jogada Inválida!")
